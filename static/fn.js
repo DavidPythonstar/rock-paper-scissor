@@ -1,4 +1,3 @@
-console.log(getComputerChoice())
 function getComputerChoice()
 {
     let computerChoice = "";
