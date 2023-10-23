@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'main';
+    src: url(main.ttf);
+}
+body
+{
+    background-color: cyan;
+}
+
+#logo{
+    height: 100px;
+}
+
+.nav{
+    display: flex;
+    background-color: blanchedalmond;
+    justify-content: space-between;
+}
+#navL
+{
+    margin-top: 30px;
+    align-items: center;
+    margin-right: 20px;
+    font-family: 'main';
+    font-size: 39px;
+}
+
+.buttons
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.buttons button
+{
+    margin:20px;
+    background-color:cyan;
+    border: none;
+}
+.buttons button:hover
+{
+    box-shadow: 0 0 70px #7fff00;
+    border-radius: 100%;
+    background-color:greenyellow;
+}
+.texts
+{
+    display: flex;
+    justify-content: center;
+    padding:30px;
+    box-shadow: 0 0 4px blueviolet;
+    margin: 30px;
+    border-radius: 20px;
+}

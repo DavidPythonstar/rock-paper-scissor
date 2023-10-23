@@ -1,3 +1,20 @@
+const typing = document.querySelector('.texts')
+const textToType = "Welcome to the ultimate battle of wits between you and your computer opponent! It's time to engage in the timeless game of Rock, Paper, Scissors.In this epic showdown, you will face off against your digital adversary. Each of you will choose your weapon - Rock, Paper, or Scissors - in a quest for victory. Will you outsmart the computer or be outwitted by its algorithmic might?"
+
+function textTyping(element, text, index=0)
+{
+    element.textContent += text[index]
+    if (index === textToType.length-1)
+        return;
+    
+    setTimeout( () => textTyping(element, text, index + 1), 100);
+    
+}
+
+
+
+textTyping(typing,textToType)
+
 function getComputerChoice()
 {
     let computerChoice = "";
