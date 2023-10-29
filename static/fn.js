@@ -1,18 +1,20 @@
 const typing = document.querySelector('.texts')
 const textToType = "Welcome to the ultimate battle of wits between you and your computer opponent! It's time to engage in the timeless game of Rock, Paper, Scissors.In this epic showdown, you will face off against your digital adversary. Each of you will choose your weapon - Rock, Paper, or Scissors - in a quest for victory. Will you outsmart the computer or be outwitted by its algorithmic might?"
+const buttons = document.querySelectorAll('button');
+const dynamic = document.querySelector('.dynamic')
 
+// Define a variable to hold the ID of the clicked button
+
+console.log()
 function textTyping(element, text, index=0)
 {
     element.textContent += text[index]
     if (index === textToType.length-1)
         return;
     
-    setTimeout( () => textTyping(element, text, index + 1), 100);
+    setTimeout( () => textTyping(element, text, index + 1), 120);
     
 }
-
-
-
 textTyping(typing,textToType)
 
 function getComputerChoice()
@@ -60,40 +62,63 @@ function playRound(playerSelection, computerSelection) {
             result = "Tie";
         
     }
-    else
-            result = "Entered an Invalid input";
 
-    return `you chose ${playerMove} and Computer Chose ${computerSelection} and You ${result}`;
+    return (`you chose ${playerMove} and Computer Chose ${computerSelection} and You ${result}`);
 }
-
-function game()
+let playerChoice = '';
+let loses = 0;
+let wins = 0;
+let ties = 0
+buttons.forEach( (button) =>
 {
-    let counter = 0;
-    let win = 0;
-    let lose = 0;
-    let tie = 0;
-    
-    while (counter < 5)
+    button.addEventListener('click',(button) =>
     {
-         player = prompt("Enter your choice")
-        console.log(playRound(player,choice));
-        if (result === "Win")
-            win++;
+        
+        playerChoice = button.target.id;
+        choice = getComputerChoice()
+        let theResult = playRound(playerChoice,choice);
+        
+        
+        let resultH4 = document.createElement('h4');
+        resultH4.textContent = theResult;
+        dynamic.appendChild(resultH4)
+        console.log(result);
+        
+        resultH4 = "";
+
+        if (result == "Win")
+        {
+            wins++;
+        }
         else if (result === "Lose")
-            lose++;
-        else if (result === "Tie")
-            tie++;
-        else
-            counter--;
+        {
+            loses++;
+        }
+        else if(result === "Tie")
+        {
+            ties++;
+        }
+        
+        console.log(`you have ${wins} wins ${loses} loses and ${ties} ties`)
+        let gameResult = `Wins: ${wins}  Loses: ${loses} Tie: ${ties}`
+        const gameResuth6 = document.createElement('h6')
+        gameResuth6.textContent = gameResult;
+        dynamic.appendChild(gameResuth6)
+        if (wins == 5)
+        {
+            alert(`You won the March with Wins:${wins} Loses:${loses} and Ties:${ties}`)
+            loses = 0;
+            wins = 0;
+            ties = 0
+        }
+        else if (loses == 5)
+        {
+            alert(`You lost the March with loses:${loses} wins:${wins} and Ties:${ties}`)
+            loses = 0;
+            wins = 0;
+            ties = 0
+        }
+    })
+    
+})
 
-        counter++;
-    }
-    if (win > lose)
-        console.log(`You win with ${win} wins and ${lose} loses plus ${tie} ties`);
-    else
-        console.log(`You lose with ${lose} loses and ${wins} wins plus ${tie} ties `)
-
-
-}
-// console.log(playRound(player,choice))
-game();

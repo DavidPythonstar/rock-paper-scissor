@@ -5,7 +5,12 @@
 }
 @font-face {
     font-family: 'main';
-    src: url(main.ttf);
+    src: url(Cupcake.ttf);
+}
+
+@font-face {
+    font-family: text;
+    src: url(Sweety.ttf);
 }
 body
 {
@@ -20,6 +25,7 @@ body
     display: flex;
     background-color: blanchedalmond;
     justify-content: space-between;
+    box-shadow: 0 0 4px blueviolet;
 }
 #navL
 {
@@ -28,6 +34,7 @@ body
     margin-right: 20px;
     font-family: 'main';
     font-size: 39px;
+    
 }
 
 .buttons
@@ -57,4 +64,7 @@ body
     box-shadow: 0 0 4px blueviolet;
     margin: 30px;
     border-radius: 20px;
+    font-family: text;
+    font-size: 30px;
+    font-weight: bold;
 }
