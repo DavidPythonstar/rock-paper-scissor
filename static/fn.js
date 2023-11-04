@@ -3,9 +3,6 @@ const textToType = "Welcome to the ultimate battle of wits between you and your 
 const buttons = document.querySelectorAll('button');
 const dynamic = document.querySelector('.dynamic')
 
-// Define a variable to hold the ID of the clicked button
-
-console.log()
 function textTyping(element, text, index=0)
 {
     element.textContent += text[index]
@@ -73,18 +70,12 @@ buttons.forEach( (button) =>
 {
     button.addEventListener('click',(button) =>
     {
-        
         playerChoice = button.target.id;
         choice = getComputerChoice()
         let theResult = playRound(playerChoice,choice);
+        const resultH4 = document.querySelector('h4')
+        resultH4.innerText = theResult
         
-        
-        let resultH4 = document.createElement('h4');
-        resultH4.textContent = theResult;
-        dynamic.appendChild(resultH4)
-        console.log(result);
-        
-        resultH4 = "";
 
         if (result == "Win")
         {
@@ -101,9 +92,8 @@ buttons.forEach( (button) =>
         
         console.log(`you have ${wins} wins ${loses} loses and ${ties} ties`)
         let gameResult = `Wins: ${wins}  Loses: ${loses} Tie: ${ties}`
-        const gameResuth6 = document.createElement('h6')
-        gameResuth6.textContent = gameResult;
-        dynamic.appendChild(gameResuth6)
+        const gameResuth6 = document.querySelector('h6')
+        gameResuth6.innerHTML = gameResult;
         if (wins == 5)
         {
             alert(`You won the March with Wins:${wins} Loses:${loses} and Ties:${ties}`)
